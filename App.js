@@ -1,6 +1,6 @@
 import express from "express";
 import database from "./src/configs/database";
-
+import router from "./src/routes/router";
 class App {
   constructor() {
     this.app = express();
@@ -14,7 +14,9 @@ class App {
     this.app.use(express.urlencoded({ extended: true }));
   }
 
-  routes() {}
+  routes() {
+    this.app.use("/", router);
+  }
 }
 
 export default new App().app;
